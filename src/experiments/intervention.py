@@ -14,7 +14,7 @@ DEVICE = "cuda:0"
 
 # Steering Settings
 LAYER_ID = 15
-COEFFICIENT = -2.0
+COEFFICIENT = -5.0
 
 # 1. Calibration Data
 STEERING_DATA = [
@@ -190,4 +190,4 @@ def run_intervention(model_name, limit=None):
     print(f"✅ Saved to: {output_file}")
 
 if __name__ == "__main__":
-    run_intervention("mistralai/Mistral-7B-Instruct-v0.2", limit=5)
+    run_intervention("mistralai/Mistral-7B-Instruct-v0.2", limit=None)
