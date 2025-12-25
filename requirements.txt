@@ -5,5 +5,4 @@ pandas>=2.1.0
 accelerate>=0.25.0
 scipy
 jupyter
-# representation-engineering library usually needs to be installed via git, 
-# but for now we list standard libs.
+matplotlib
