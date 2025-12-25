@@ -1,0 +1,13 @@
+# Python junk
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Data (NEVER push data to git)
+data/
+results/
+models/
+
+# Environment
+.env
+.vscode/
