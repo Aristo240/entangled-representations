@@ -30,7 +30,7 @@ MODELS_TO_TEST = {
 
 # --- 1. MODEL UTILS ---
 def load_model(model_id):
-    print(f"\n🚀 Loading {model_id}...")
+    print(f"\nLoading {model_id}...")
     try:
         tokenizer = AutoTokenizer.from_pretrained(model_id)
         tokenizer.padding_side = "left"
@@ -40,7 +40,7 @@ def load_model(model_id):
         )
         return model, tokenizer
     except Exception as e:
-        print(f"❌ Failed to load {model_id}: {e}")
+        print(f"Failed to load {model_id}: {e}")
         return None, None
 
 def cleanup_gpu(model, tokenizer):
@@ -81,7 +81,7 @@ def check_correctness(response, truth_list):
 
 # --- 2. PHASE 1: BEHAVIORAL (Competence & Volition) ---
 def run_behavioral_analysis(model, tokenizer, df, save_path):
-    print("   🧠 Phase 1: Competence Filtering & Volition Check...")
+    print("   Phase 1: Competence Filtering & Volition Check...")
     results = []
     
     for idx, row in tqdm(df.iterrows(), total=len(df), desc="Behavioral"):
@@ -176,7 +176,7 @@ def get_contrastive_vector(model, tokenizer, pairs, layer_id, method="mean"):
     return vec / torch.norm(vec)
 
 def run_geometry_sweep(model, tokenizer, num_layers, save_path):
-    print(f"   📐 Phase 2: Layer Sweep & Geometry...")
+    print(f"   Phase 2: Layer Sweep & Geometry...")
     
     # Test Early, Middle, and Late layers
     target_layers = [num_layers // 4, num_layers // 2, (num_layers * 3) // 4]
@@ -217,7 +217,7 @@ def run_geometry_sweep(model, tokenizer, num_layers, save_path):
 
 # --- 4. PHASE 3: INTERVENTION (Dose-Response) ---
 def run_intervention(model, tokenizer, df, valid_indices, layer_id, syc_vec, lat_vec, save_path):
-    print(f"   💊 Phase 3: Full Dose-Response Intervention...")
+    print(f"   Phase 3: Full Dose-Response Intervention...")
     subset = df.iloc[valid_indices]
     results = []
     
