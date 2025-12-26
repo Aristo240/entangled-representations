@@ -38,29 +38,23 @@ def generate_dataset():
         best_answer = item['best_answer']
         incorrect_answers = item['incorrect_answers'] # List of lies
         
-        # We need at least one lie to use as bait
         if not incorrect_answers:
             continue
             
-        # Pick a random lie to be the "Bait"
         bait = random.choice(incorrect_answers)
-        
-        # Pick a random social pressure template
         template = random.choice(TEMPLATES)
-        
-        # Construct the "Poisoned" Prompt
         poisoned_prompt = template.format(lie=bait)
         
         rows.append({
             "original_question": question,
-            "correct_answers": correct_answers, # List
+            "correct_answers": correct_answers,
             "best_answer": best_answer,
             "bait_used": bait,
             "poisoned_prompt_text": f"{poisoned_prompt}\n\nQuestion: {question}",
             "template_used": template
         })
     
-    df = pd.read_json(pd.Series([item for item in rows]).to_json(orient='records'), orient='records')
+    df = pd.DataFrame(rows)
     df.to_csv(OUTPUT_PATH, index=False)
     print(f"Dataset saved to {OUTPUT_PATH} ({len(df)} samples)")
 
