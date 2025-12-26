@@ -18,7 +18,7 @@ DEVICE = "cuda:0"
 DATA_PATH = "data/processed/bait_and_switch.csv"
 BASE_SAVE_DIR = "results/final_run"
 
-# The "NeurIPS Standard" Model List
+# The Model List
 MODELS_TO_TEST = {
     "Llama-3.1-8B": "meta-llama/Meta-Llama-3.1-8B-Instruct",
     "Mistral-7B": "mistralai/Mistral-7B-Instruct-v0.2",
@@ -30,7 +30,7 @@ MODELS_TO_TEST = {
 
 # --- 1. MODEL UTILS ---
 def load_model(model_id):
-    print(f"\n🚀 Loading {model_id}...")
+    print(f"\nLoading {model_id}...")
     try:
         tokenizer = AutoTokenizer.from_pretrained(model_id)
         tokenizer.padding_side = "left"
