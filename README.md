@@ -1,7 +1,6 @@
-# Entangled Representations (in progress)
+# Entangled Representations
 
-Exploratory research project analyzing the relationship between sycophancy and hallucination
-in instruction-tuned large language models.
+Exploratory research project analyzing the relationship between sycophancy and hallucination in instruction-tuned large language models.
 
 The project implements:
 - A multi-stage behavioral probe ("Bait & Switch")
@@ -9,4 +8,5 @@ The project implements:
 - Inference-time activation steering with control conditions
 
 This repository contains experimental code and analysis pipelines.
-Results are preliminary and experiments are ongoing.
+
+**Status:** Active research project. Additional analyses and results will be added as experiments complete.
